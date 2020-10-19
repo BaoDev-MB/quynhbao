@@ -97,79 +97,79 @@
     return o
 });
 
-var assets = [
-    'images/1.png',
-    'images/2.png',
-    'images/3.png',
-    'images/4.png',
-    'images/5.png',
-    'images/6.png',
-    'images/7.png',
-    'images/8.png',
-    'images/9.png',
-    'images/10.png'
-];
-assets.forEach(function(src, index) {
-    assets[index] = new Promise(function(resolve) {
-        var img = new Image;
-        img.onload = resolve.bind(null, img);
-        img.src = src;
-    });
-});
+// var assets = [
+//     'images/1.png',
+//     'images/2.png',
+//     'images/3.png',
+//     'images/4.png',
+//     'images/5.png',
+//     'images/6.png',
+//     'images/7.png',
+//     'images/8.png',
+//     'images/9.png',
+//     'images/10.png'
+// ];
+// assets.forEach(function(src, index) {
+//     assets[index] = new Promise(function(resolve) {
+//         var img = new Image;
+//         img.onload = resolve.bind(null, img);
+//         img.src = src;
+//     });
+// });
 
-Promise.all(assets).then(function(images) {
+// Promise.all(assets).then(function(images) {
 
-    var random = {
-        uniform: function(min, max) {
-            return min + (max - min) * Math.random();
-        },
-        uniformDiscrete: function(i, j) {
-            return i + Math.floor((j - i + 1) * random.uniform(0, 1));
-        },
-    };
+//     var random = {
+//         uniform: function(min, max) {
+//             return min + (max - min) * Math.random();
+//         },
+//         uniformDiscrete: function(i, j) {
+//             return i + Math.floor((j - i + 1) * random.uniform(0, 1));
+//         },
+//     };
 
-    var stage = new BubbleHearts();
-    var canvas = stage.canvas;
-    canvas.width = 170;
-    canvas.height = 300;
-    canvas.style['width'] = '170px';
-    canvas.style['height'] = '300px';
+//     var stage = new BubbleHearts();
+//     var canvas = stage.canvas;
+//     canvas.width = 170;
+//     canvas.height = 300;
+//     canvas.style['width'] = '170px';
+//     canvas.style['height'] = '300px';
    
-    document.getElementsByClassName('heartCa')[0].appendChild(canvas);
+//     document.getElementsByClassName('heartCa')[0].appendChild(canvas);
     
-    document.getElementsByClassName('heart')[0].addEventListener('click', function() {
+//     document.getElementsByClassName('heart')[0].addEventListener('click', function() {
         
-        Math.floor((Math.random()*10)+1);
-        var min = 3,max=7;
-        var num = Math.floor(Math.random()*(max-min+1)+min);
-        var i=0;
-        //for(;i<=num;i++) {
-        //    stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
-        //}
-        var t1=window.setInterval( function (){
-            stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
-            i++;
-            if(i>num)
-                window.clearInterval(t1);
-        }, 50);
-       //stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
-       //stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
+//         Math.floor((Math.random()*10)+1);
+//         var min = 3,max=7;
+//         var num = Math.floor(Math.random()*(max-min+1)+min);
+//         var i=0;
+//         //for(;i<=num;i++) {
+//         //    stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
+//         //}
+//         var t1=window.setInterval( function (){
+//             stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
+//             i++;
+//             if(i>num)
+//                 window.clearInterval(t1);
+//         }, 50);
+//        //stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
+//        //stage.bubble(images[random.uniformDiscrete(0, images.length - 1)]);
 
         
-        //	let image = images[random.uniformDiscrete(0, images.length - 1)];
-        //	stage.bubble(image, 3000, function(lifespan) {
-        //		if(lifespan >= 0) {
-        //			stage.context.drawImage(
-        //				image,
-        //				(canvas.width - image.width) / 2,
-        //				(canvas.height - image.height) * lifespan,
-        //				image.width,
-        //				image.height
-        //			);
-        //		} else {
-        //			return true;
-        //		}
-        //	});
-    }, false);
+//         //	let image = images[random.uniformDiscrete(0, images.length - 1)];
+//         //	stage.bubble(image, 3000, function(lifespan) {
+//         //		if(lifespan >= 0) {
+//         //			stage.context.drawImage(
+//         //				image,
+//         //				(canvas.width - image.width) / 2,
+//         //				(canvas.height - image.height) * lifespan,
+//         //				image.width,
+//         //				image.height
+//         //			);
+//         //		} else {
+//         //			return true;
+//         //		}
+//         //	});
+//     }, false);
 
-});
+// });
